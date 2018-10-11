@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="Primer_parcial_Aplicada_2.UI.Master_Page.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <%-- Boostrap.min --%>
+    <link href="../../Content/css/bootstrap.min.css" rel="stylesheet" />
+    <%-- Jquery --%>
+    <script src="../../Content/js/jquery-3.3.1.min.js"></script>
+    <%-- Boostrap.bundel --%>
+    <script src="../../Content/js/bootstrap.bundle.min.js"></script>
+    <%-- Boostrap.min.js --%>
+    <script src="../../Content/js/bootstrap.min.js"></script>
+    <%-- Toastr.css --%>
+    <link href="../../Content/css/toastr.css" rel="stylesheet" />
+    <%-- Toastr.js --%>
+    <script src="../../Content/js/toastr.js"></script>
+
+
+    <title>Banco</title>
+
+    <style>
+        h1 {
+            font-size: x-large;
+            ;
+            font-family: 'Times New Roman', Times, serif;
+            font: bold;
+            color: red;
+        }
+
+        .ErrorMessage {
+            color: red;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="/UI/Registro/Cuenta Bancaria.aspx">Cuenta Bancaria</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/UI/Registro/RegistroDeposito.aspx">Deposito</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/UI/Consulta/CDeposito.aspx">Consulta Deposito</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/UI/Consulta/CconsultaBanco.aspx">Consulta Cuenta Bancaria</a>
+            </li>
+
+        </ul>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.TimeOfDay.Hours %>:<%: DateTime.Now.TimeOfDay.Minutes %>, <%: DateTime.Now.Day %>:<%: DateTime.Now.Month %>:<%: DateTime.Now.Year %> - Banco</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
