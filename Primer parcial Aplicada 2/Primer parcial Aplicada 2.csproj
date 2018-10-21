@@ -112,6 +112,7 @@
     <Content Include="Content\js\jquery-3.3.1.min.js" />
     <Content Include="Content\js\jquery.maskedinput.js" />
     <Content Include="Content\js\toastr.js" />
+    <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Reporte.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -129,9 +130,9 @@
     </Content>
     <Content Include="UI\Consulta\CconsultaBanco.aspx" />
     <Content Include="UI\Consulta\CDeposito.aspx" />
-    <Content Include="UI\Main.aspx" />
     <Content Include="UI\Registro\Cuenta Bancaria.aspx" />
     <Content Include="UI\Registro\RegistroDeposito.aspx" />
+    <Content Include="UI\Registro\rPrestamos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +140,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Aplicada2PrimerParcialDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,13 +179,6 @@
     <Compile Include="UI\Consulta\CDeposito.aspx.designer.cs">
       <DependentUpon>CDeposito.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Main.aspx.cs">
-      <DependentUpon>Main.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\Main.aspx.designer.cs">
-      <DependentUpon>Main.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UI\Master Page\Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="UI\Registro\RegistroDeposito.aspx.designer.cs">
       <DependentUpon>RegistroDeposito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\rPrestamos.aspx.cs">
+      <DependentUpon>rPrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\rPrestamos.aspx.designer.cs">
+      <DependentUpon>rPrestamos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

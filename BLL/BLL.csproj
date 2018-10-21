@@ -60,6 +60,7 @@
     <Compile Include="DepositosBLL.cs" />
     <Compile Include="Herramientas.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="PrestamoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioBase.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
