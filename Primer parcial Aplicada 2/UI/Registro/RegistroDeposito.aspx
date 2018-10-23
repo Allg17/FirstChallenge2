@@ -40,7 +40,7 @@
                         <label for="Cuenta_Id_DropDownList" class="col-md-3 control-label input-sm">Cuenta ID:</label>
                         <div class="col-md-4 col-sm-4">
                             <asp:DropDownList  ValidationGroup="Guardar" AutoPostBack="true" ID="Cuenta_Id_DropDownList" AppendDataBoundItems="true" CssClass="form-control input-sm" runat="server"></asp:DropDownList>
-                            <asp:RequiredFieldValidator  ValidationGroup="Guardar" ID="RequiredFieldValidator2" ControlToValidate="Cuenta_Id_DropDownList" CssClass="ErrorMessage" runat="server" ErrorMessage="Seleccione una cuenta"></asp:RequiredFieldValidator>
+                           <asp:CustomValidator ValidationGroup="Guardar" ID="CustomValidator2" Display="Dynamic" SetFocusOnError="true" CssClass="ErrorMessage" ControlToValidate="Cuenta_Id_DropDownList" runat="server" ErrorMessage="Seleccione una cuenta" OnServerValidate="CustomValidator2_ServerValidate"></asp:CustomValidator>
                         </div>
                     </div>
                 </div>

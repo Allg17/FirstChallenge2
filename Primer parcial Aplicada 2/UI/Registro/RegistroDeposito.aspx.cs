@@ -74,6 +74,10 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
 
         protected void GuadarButton_Click(object sender, EventArgs e)
         {
+
+            if (Cuenta_Id_DropDownList.SelectedValue == condicion)
+                return;
+
             BLL.DepositosBLL depositosBLL = new BLL.DepositosBLL();
             if (Id_DropDownList.Text.Equals(condicion))
             {
@@ -130,6 +134,17 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Equals(condicion))
+            {
+                args.IsValid = false;
+
+            }
+            else
+                args.IsValid = true;
+        }
+
+        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (args.Value.Equals(condicion))
             {
