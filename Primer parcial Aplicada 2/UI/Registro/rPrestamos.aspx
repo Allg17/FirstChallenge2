@@ -77,7 +77,7 @@
                             <asp:TextBox ID="TiempoTextBox" ValidationGroup="Guardar" placeholder="Tiempo (Meses)" CssClass="form-control" runat="server"></asp:TextBox>
                             <span>Meses</span>
                             <asp:RequiredFieldValidator ValidationGroup="Calcular"  CssClass=" ErrorMessage" ControlToValidate="TiempoTextBox" ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ingrese un tiempo"></asp:RequiredFieldValidator>
-                            <asp:RequiredFieldValidator ValidationGroup="Guardar"  CssClass=" ErrorMessage" ControlToValidate="TiempoTextBox" ID="RequiredFieldValidator6" runat="server" ErrorMessage="Ingrese un tiempo"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ValidationGroup="Guardar"  CssClass=" ErrorMessage" ControlToValidate="TiempoTextBox" ID="RequiredFieldValidator6" runat="server" ErrorMessage="Ingrese Tiempo"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>

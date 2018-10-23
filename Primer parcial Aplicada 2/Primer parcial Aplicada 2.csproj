@@ -280,6 +280,8 @@
     <Content Include="PrestamoDataSet1.xss">
       <DependentUpon>PrestamoDataSet1.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\Banco2ParcialPA2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Banco2ParcialPA2 - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -311,7 +313,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reporte\Reporte.rdlc" />
-    <EmbeddedResource Include="Reporte\ReportePrestamo.rdlc" />
+    <Content Include="Reporte\ReportePrestamo.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

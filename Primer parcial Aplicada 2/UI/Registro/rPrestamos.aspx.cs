@@ -112,7 +112,7 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
                 if (Prestamo.Guardar(LlenaClase()))
                 {
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Guardado');", addScriptTags: true);
-                    NuevoButton_Click(sender, e);
+                    
                 }
                 else
                 {
@@ -127,7 +127,7 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
                 {
 
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Modificado');", addScriptTags: true);
-                    NuevoButton_Click(sender, e);
+                    
                 }
                 else
                 {

@@ -534,7 +534,7 @@
         <DataSetName>PrestamoDataset</DataSetName>
         <Top>0.76729cm</Top>
         <Height>1.30583cm</Height>
-        <Width>19.85356cm</Width>
+        <Width>19.85354cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1025,7 +1025,7 @@
         <DataSetName>CuotaDatSet</DataSetName>
         <Top>2.09958cm</Top>
         <Height>1.86146cm</Height>
-        <Width>19.85356cm</Width>
+        <Width>19.85355cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
