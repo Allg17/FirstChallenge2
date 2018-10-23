@@ -93,10 +93,13 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
                 return;
             if (!Id_DropDownList.Text.Equals(condicion))
             {
+
+                //Si tiene algun prestamo o deposito enlazado no elimina
                 BLL.RepositorioBase<Deposito> repositorios = new BLL.RepositorioBase<Deposito>();
-                if (repositorios.GetList(x => x.CuentaId == id).Count() > 0)
+                BLL.RepositorioBase<Prestamo> repositorioPrestamo = new BLL.RepositorioBase<Prestamo>();
+                if (repositorios.GetList(x => x.CuentaId == id).Count() > 0|| repositorioPrestamo.GetList(x=>x.IdCuenta==id).Count() >0)
                 {
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('No Eliminado tiene depositos');", addScriptTags: true);
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('No Eliminado tiene depositos o Prestamos Enlazados');", addScriptTags: true);
 
                 }
                 else
