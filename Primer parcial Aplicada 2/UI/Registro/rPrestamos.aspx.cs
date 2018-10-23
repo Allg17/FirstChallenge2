@@ -184,7 +184,8 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
 
-            Server.Transfer("~/PrestamoReporte.aspx");
+          
+            Response.Write("<script>window.open('../../PrestamoReporte.aspx','_blanck');</script");
 
         }
 

@@ -17,6 +17,7 @@
     <%-- Toastr.js --%>
     <script src="../../Content/js/toastr.js"></script>
 
+  
     <title>Banco</title>
 
     <style>
@@ -37,42 +38,43 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
+       
+        
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
 
-                        <li class="nav-item dropdown">
-                            <a class="navbar-brand dropdown-toggle" href="#" id="RegistroCategoriaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="nav-link active" href="/UI/Registro/Cuenta Bancaria.aspx">Cuenta Bancaria</a>
-                                  <a class="nav-link" href="/UI/Registro/RegistroDeposito.aspx">Deposito</a>
-                                  <a class="nav-link" href="/UI/Registro/rPrestamos.aspx">Prestamo</a>
-                                
+                    <li class="nav-item dropdown">
+                        <a class="navbar-brand dropdown-toggle" href="#" id="RegistroCategoriaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link active" href="/UI/Registro/Cuenta Bancaria.aspx">Cuenta Bancaria</a>
+                            <a class="nav-link" href="/UI/Registro/RegistroDeposito.aspx">Deposito</a>
+                            <a class="nav-link" href="/UI/Registro/rPrestamos.aspx">Prestamo</a>
 
-                            </div>
-                        </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="navbar-brand dropdown-toggle" href="#" id="ConsultaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulta
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="nav-link" href="/UI/Consulta/CDeposito.aspx">Consulta Deposito</a>
-                                 <a class="nav-link" href="/UI/Consulta/CconsultaBanco.aspx">Consulta Cuenta Bancaria</a>
-                                 <a class="nav-link" href="/UI/Consulta/ConsultaPrestamo.aspx">Consulta Prestamo</a>
-                            </div>
-                        </li>
-                      
-                       
-                    </ul>
-                    
+                        </div>
+                    </li>
 
-                </div>
-            </nav>
+                    <li class="nav-item dropdown">
+                        <a class="navbar-brand dropdown-toggle" href="#" id="ConsultaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulta
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" href="/UI/Consulta/CDeposito.aspx">Consulta Deposito</a>
+                            <a class="nav-link" href="/UI/Consulta/CconsultaBanco.aspx">Consulta Cuenta Bancaria</a>
+                            <a class="nav-link" href="/UI/Consulta/ConsultaPrestamo.aspx">Consulta Prestamo</a>
+                        </div>
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+        </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
