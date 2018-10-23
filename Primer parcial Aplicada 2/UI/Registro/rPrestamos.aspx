@@ -39,7 +39,7 @@
                         <span class="col-md-3 control-label input-sm">Cuenta:</span>
                         <div class="col-md-4 col-sm-4">
                             <asp:DropDownList ID="CuentaDropDownList" AppendDataBoundItems="true" CssClass="form-control input-sm" AutoPostBack="true" ValidationGroup="Guardar" runat="server"></asp:DropDownList>
-                            <asp:CustomValidator ID="CustomValidator2" OnServerValidate="CustomValidator2_ServerValidate" ValidationGroup="Guardar" Display="Dynamic" SetFocusOnError="true" CssClass="ErrorMessage" ControlToValidate="Id_DropDownList" runat="server" ErrorMessage="Seleccione una Cuenta"></asp:CustomValidator>
+                            <asp:CustomValidator ID="CustomValidator2" OnServerValidate="CustomValidator2_ServerValidate" ValidationGroup="Guardar" Display="Dynamic" SetFocusOnError="true" CssClass="ErrorMessage" ControlToValidate="CuentaDropDownList" runat="server" ErrorMessage="Seleccione una Cuenta"></asp:CustomValidator>
                         </div>
                     </div>
                 </div>
