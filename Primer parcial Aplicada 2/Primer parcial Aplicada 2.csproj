@@ -114,6 +114,7 @@
     <Content Include="Content\js\toastr.js" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="PrestamoReporte.aspx" />
     <Content Include="Reporte.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -130,6 +131,7 @@
     </Content>
     <Content Include="UI\Consulta\CconsultaBanco.aspx" />
     <Content Include="UI\Consulta\CDeposito.aspx" />
+    <Content Include="UI\Consulta\ConsultaPrestamo.aspx" />
     <Content Include="UI\Registro\Cuenta Bancaria.aspx" />
     <Content Include="UI\Registro\RegistroDeposito.aspx" />
     <Content Include="UI\Registro\rPrestamos.aspx" />
@@ -141,6 +143,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Aplicada2PrimerParcialDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CuotaDataset1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuotaDataset1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,6 +157,18 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PrestamoDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrestamoDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrestamoReporte.aspx.cs">
+      <DependentUpon>PrestamoReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrestamoReporte.aspx.designer.cs">
+      <DependentUpon>PrestamoReporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -178,6 +197,13 @@
     </Compile>
     <Compile Include="UI\Consulta\CDeposito.aspx.designer.cs">
       <DependentUpon>CDeposito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consulta\ConsultaPrestamo.aspx.cs">
+      <DependentUpon>ConsultaPrestamo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consulta\ConsultaPrestamo.aspx.designer.cs">
+      <DependentUpon>ConsultaPrestamo.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Master Page\Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
@@ -230,8 +256,30 @@
     <Content Include="Aplicada2PrimerParcialDataSet.xss">
       <DependentUpon>Aplicada2PrimerParcialDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="CuotaDataset1.xsc">
+      <DependentUpon>CuotaDataset1.xsd</DependentUpon>
+    </Content>
+    <None Include="CuotaDataset1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CuotaDataset1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="CuotaDataset1.xss">
+      <DependentUpon>CuotaDataset1.xsd</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="UI\Master Page\Master.Master" />
+    <Content Include="PrestamoDataSet1.xsc">
+      <DependentUpon>PrestamoDataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="PrestamoDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrestamoDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="PrestamoDataSet1.xss">
+      <DependentUpon>PrestamoDataSet1.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -263,6 +311,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reporte\Reporte.rdlc" />
+    <EmbeddedResource Include="Reporte\ReportePrestamo.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -11,6 +11,7 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
     public partial class rPrestamos : System.Web.UI.Page
     {
         BLL.RepositorioBase<Prestamo> repositorio = new BLL.RepositorioBase<Prestamo>();
+        BLL.PrestamoBLL Prestamo = new BLL.PrestamoBLL();
         string condicion = "Select One";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -72,16 +73,16 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
             if (Id_DropDownList.SelectedValue != condicion)
                 id = Convert.ToInt32(Id_DropDownList.SelectedValue);
 
-            BLL.PrestamoBLL cuota = new BLL.PrestamoBLL();
+
             if (Id_DropDownList.Text.Equals(condicion))
-                ViewState["Cuota"] = cuota.CalcularCuotas(Convert.ToInt32(TiempoTextBox.Text), Convert.ToDouble(CapitalTextBox.Text), (Convert.ToDouble(InteresTextBox.Text) / 100) / 12);
+                ViewState["Cuota"] = Prestamo.CalcularCuotas(Convert.ToInt32(TiempoTextBox.Text), Convert.ToDouble(CapitalTextBox.Text), (Convert.ToDouble(InteresTextBox.Text) / 100) / 12);
             else
-                ViewState["Cuota"] = cuota.CalcularCuotasModificadas((List<Cuota>)ViewState["Cuota"], id,Convert.ToInt32(TiempoTextBox.Text), Convert.ToDouble(CapitalTextBox.Text), (Convert.ToDouble(InteresTextBox.Text) / 100) / 12);
+                ViewState["Cuota"] = Prestamo.CalcularCuotasModificadas((List<Cuota>)ViewState["Cuota"], id, Convert.ToInt32(TiempoTextBox.Text), Convert.ToDouble(CapitalTextBox.Text), (Convert.ToDouble(InteresTextBox.Text) / 100) / 12);
 
             DatosGridView.DataSource = ViewState["Cuota"];
             DatosGridView.DataBind();
 
-            
+
 
         }
 
@@ -92,7 +93,7 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
             InteresTextBox.Text = string.Empty;
             TiempoTextBox.Text = string.Empty;
             DatosGridView.DataSource = null;
-            DatosGridView.DataBind(); 
+            DatosGridView.DataBind();
             Id_DropDownList.Text = condicion;
             LlenaComboId();
             LlenaComboCuenta();
@@ -101,11 +102,14 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
 
         protected void GuadarButton_Click(object sender, EventArgs e)
         {
-            BLL.PrestamoBLL Prestamo = new BLL.PrestamoBLL();
+            
+            if (CuentaDropDownList.SelectedValue == condicion)
+                return;
+
             if (Id_DropDownList.Text.Equals(condicion))
             {
 
-                if (repositorio.Guardar(LlenaClase()))
+                if (Prestamo.Guardar(LlenaClase()))
                 {
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Guardado');", addScriptTags: true);
                     NuevoButton_Click(sender, e);
@@ -136,7 +140,7 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            BLL.PrestamoBLL cuota = new BLL.PrestamoBLL();
+
             int id = 0;
             if (Id_DropDownList.SelectedValue != condicion)
                 id = Convert.ToInt32(Id_DropDownList.SelectedValue);
@@ -144,7 +148,7 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
                 return;
             if (!Id_DropDownList.Text.Equals(condicion))
             {
-                if (cuota.Eliminar(id))
+                if (Prestamo.Eliminar(id))
                 {
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Eliminado');", addScriptTags: true);
                     NuevoButton_Click(sender, e);
@@ -164,10 +168,10 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
             CapitalTextBox.Text = prestamo.Capital.ToString();
             InteresTextBox.Text = prestamo.Interes.ToString();
             TiempoTextBox.Text = prestamo.Tiempo.ToString();
-            ViewState["Cuota"]= prestamo.Detalle;
+            ViewState["Cuota"] = prestamo.Detalle;
             DatosGridView.DataSource = (List<Cuota>)ViewState["Cuota"];
             DatosGridView.DataBind();
-            
+
         }
 
         protected void DatosGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -175,6 +179,35 @@ namespace Primer_parcial_Aplicada_2.UI.Registro
             DatosGridView.DataSource = (List<Cuota>)ViewState["Cuota"];
             DatosGridView.PageIndex = e.NewPageIndex;
             DatosGridView.DataBind();
+        }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+
+            Server.Transfer("~/PrestamoReporte.aspx");
+
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Equals(condicion))
+            {
+                args.IsValid = false;
+
+            }
+            else
+                args.IsValid = true;
+        }
+
+        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Equals(condicion))
+            {
+                args.IsValid = false;
+
+            }
+            else
+                args.IsValid = true;
         }
     }
 }

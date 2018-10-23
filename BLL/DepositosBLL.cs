@@ -60,6 +60,7 @@ namespace BLL
                 
                 _contexto.Cuenta.Find(entity.CuentaId).Balance -= BaseDatos.Monto;
                 _contexto.Cuenta.Find(entity.CuentaId).Balance += entity.Monto;
+
                 _contexto.Entry(entity).State = System.Data.Entity.EntityState.Modified;
                 if (_contexto.SaveChanges() > 0)
                     paso = true;

@@ -13,10 +13,31 @@ namespace BLL
         public override bool Modificar(Prestamo entity)
         {
             _contexto = new DAL.Contexto();
+            decimal montoBaseDatos = 0;
+            decimal montoEntidad = 0;
             bool paso = false;
             try
             {
+                //Busca el detalle anterior en base de datos
                 var detalleAnterior = _contexto.Cuotas.Where(x => x.IdPrestamo == entity.IdPrestamo).AsNoTracking().ToList();
+
+                //Agrega a la variable montoBaseDatos el monto del capital mas el interes
+                foreach (var item in detalleAnterior)
+                {
+                    montoBaseDatos += item.Capital + item.Interes;
+                }
+
+                //Agrega a la variable montoEntidad el monto del capital mas el interes
+                foreach (var item in entity.Detalle)
+                {
+                    montoEntidad += item.Capital + item.Interes;
+                }
+
+                _contexto.Cuenta.Find(entity.IdCuenta).Balance -= montoBaseDatos;
+                _contexto.Cuenta.Find(entity.IdCuenta).Balance += montoEntidad;
+
+                //Marca como borrado alguna cuota que este en base de datos y no en la lista detalle
+
                 if (entity.Detalle.Count < detalleAnterior.Count)
                 {
                     foreach (var item in detalleAnterior)
@@ -28,12 +49,16 @@ namespace BLL
                     }
                 }
 
+                //Modifica o agrega una nueva cuota 
                 foreach (var item in entity.Detalle)
                 {
                     _contexto.Entry(item).State = item.IdCuota == 0 ? EntityState.Added : EntityState.Modified;
                 }
 
+                //modifica la entidad
                 _contexto.Entry(entity).State = EntityState.Modified;
+
+                //Guarda
                 paso = _contexto.SaveChanges() > 0 ? true : false;
 
 
@@ -125,15 +150,19 @@ namespace BLL
         public override bool Eliminar(int id)
         {
             bool paso = false;
+            decimal monto = 0;
             try
             {
-                var detalle = _contexto.Prestamos.Find(id).Detalle.Where(x => x.IdPrestamo == id);
-                foreach (var item in detalle)
-                {
-                    int a = item.CuotaNum;
+                var prestamo = _contexto.Prestamos.Find(id);
 
+
+                foreach (var item in prestamo.Detalle)
+                {
+                    monto += item.Capital + item.Interes;
                 }
-                _contexto.Prestamos.Remove(_contexto.Prestamos.Find(id));
+                _contexto.Cuenta.Find(prestamo.IdCuenta).Balance -= monto;
+
+                _contexto.Prestamos.Remove(prestamo);
                 if (_contexto.SaveChanges() > 0)
                     paso = true;
             }
@@ -144,6 +173,33 @@ namespace BLL
             }
             return paso;
         }
+
+        public override bool Guardar(Prestamo entity)
+        {
+            bool paso = false;
+            decimal monto = 0;
+            _contexto = new DAL.Contexto();
+            try
+            {
+                foreach (var item in entity.Detalle)
+                {
+                    monto += item.Capital + item.Interes;
+                }
+                _contexto.Cuenta.Find(entity.IdCuenta).Balance += monto;
+                _contexto.Prestamos.Add(entity);
+
+                if (_contexto.SaveChanges() > 0)
+                    paso = true;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+
+
 
     }
 }

@@ -63,6 +63,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="nav-link" href="/UI/Consulta/CDeposito.aspx">Consulta Deposito</a>
                                  <a class="nav-link" href="/UI/Consulta/CconsultaBanco.aspx">Consulta Cuenta Bancaria</a>
+                                 <a class="nav-link" href="/UI/Consulta/ConsultaPrestamo.aspx">Consulta Prestamo</a>
                             </div>
                         </li>
                       

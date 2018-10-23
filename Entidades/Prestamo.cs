@@ -41,6 +41,17 @@ namespace Entidades
             Interes = 0;
         }
 
+        public Prestamo(int idPrestamo, decimal interes, int idCuenta, decimal capital, int tiempo, DateTime fecha)
+        {
+            IdPrestamo = idPrestamo;
+            IdCuenta = idCuenta;
+            Tiempo = tiempo;
       
+            Fecha = Fecha;
+            Capital = capital;
+            Interes = interes;
+        }
+
+
     }
 }

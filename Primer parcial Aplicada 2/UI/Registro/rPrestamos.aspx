@@ -18,7 +18,7 @@
                         <span class="col-md-3 control-label input-sm">ID:</span>
                         <div class="col-md-4 col-sm-4">
                             <asp:DropDownList ID="Id_DropDownList" OnSelectedIndexChanged="Id_DropDownList_SelectedIndexChanged" ValidationGroup="ID" AutoPostBack="true" AppendDataBoundItems="true" CssClass="form-control input-sm" runat="server"></asp:DropDownList>
-                            <asp:CustomValidator ID="CustomValidator1" ValidationGroup="ID" Display="Dynamic" SetFocusOnError="true" CssClass="ErrorMessage" ControlToValidate="Id_DropDownList" runat="server" ErrorMessage="Seleccione una Cuenta"></asp:CustomValidator>
+                            <asp:CustomValidator ID="CustomValidator1" OnServerValidate="CustomValidator1_ServerValidate" ValidationGroup="ID" Display="Dynamic" SetFocusOnError="true" CssClass="ErrorMessage" ControlToValidate="Id_DropDownList" runat="server" ErrorMessage="Seleccione un Prestamo"></asp:CustomValidator>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                         <span class="col-md-3 control-label input-sm">Cuenta:</span>
                         <div class="col-md-4 col-sm-4">
                             <asp:DropDownList ID="CuentaDropDownList" AppendDataBoundItems="true" CssClass="form-control input-sm" AutoPostBack="true" ValidationGroup="Guardar" runat="server"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ValidationGroup="Guardar" ID="RequiredFieldValidator2" ControlToValidate="CuentaDropDownList" CssClass="ErrorMessage" runat="server" ErrorMessage="Ingrese un Nombre"></asp:RequiredFieldValidator>
+                            <asp:CustomValidator ID="CustomValidator2" OnServerValidate="CustomValidator2_ServerValidate" ValidationGroup="Guardar" Display="Dynamic" SetFocusOnError="true" CssClass="ErrorMessage" ControlToValidate="Id_DropDownList" runat="server" ErrorMessage="Seleccione una Cuenta"></asp:CustomValidator>
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                     <asp:Button Text="Nuevo" OnClick="NuevoButton_Click" class="btn btn-warning btn-md col-md-2 offset-md-3" CausesValidation="false" runat="server" ID="NuevoButton" />
                     <asp:Button ValidationGroup="Guardar" OnClick="GuadarButton_Click" Text="Guardar" class="btn btn-success btn-md col-md-2 " runat="server" ID="GuadarButton" />
                     <asp:Button ValidationGroup="ID" OnClick="EliminarButton_Click" Text="Eliminar" class="btn btn-danger btn-md col-md-2 " runat="server" ID="EliminarButton" />
-                    <asp:Button Text="Imprimir" class="btn btn-info btn-md col-md-2 " runat="server" ID="ImprimirButton" />
+                    <asp:Button Text="Imprimir" OnClick="ImprimirButton_Click" class="btn btn-info btn-md col-md-2 " runat="server" ID="ImprimirButton" />
                 </div>
             </div>
         </div>
